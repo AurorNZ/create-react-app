@@ -8,6 +8,6 @@ const tsTransformAsyncToMobxFlow = require('ts-transform-async-to-mobx-flow')
 
 module.exports = function() {
   return {
-    before: [tsTransformAsyncToMobxFlow(), styledComponentsTransformer()],
+    before: [tsTransformAsyncToMobxFlow(), styledComponentsTransformer()]
   };
 };

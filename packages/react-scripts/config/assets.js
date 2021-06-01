@@ -4,7 +4,7 @@
 const GenerateAssetModulesOnPreBuild = require('./GenerateAssetModulesOnPreBuild');
 
 const svgo = {
-  plugins: [{ removeViewBox: false }],
+  plugins: [{ removeViewBox: false }]
 };
 
 /**
@@ -32,13 +32,13 @@ function imageLoader({ useCacheLoader } = { useCacheLoader: false }) {
         use: [
           ...additionalLoaders,
           {
-            loader: require.resolve('svg-sprite-loader'),
+            loader: require.resolve('svg-sprite-loader')
           },
           {
             loader: require.resolve('svgo-loader'),
-            options: svgo,
-          },
-        ],
+            options: svgo
+          }
+        ]
       },
       {
         resource: /\.svg$/,
@@ -48,14 +48,14 @@ function imageLoader({ useCacheLoader } = { useCacheLoader: false }) {
             loader: require.resolve('svg-url-loader'),
             options: {
               limit: 10000,
-              iesafe: true,
-            },
+              iesafe: true
+            }
           },
           {
             loader: require.resolve('svgo-loader'),
-            options: svgo,
-          },
-        ],
+            options: svgo
+          }
+        ]
       },
       {
         use: [
@@ -64,12 +64,12 @@ function imageLoader({ useCacheLoader } = { useCacheLoader: false }) {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-        ],
-      },
-    ],
+              name: 'static/media/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      }
+    ]
   };
 }
 
@@ -79,5 +79,5 @@ function assetPlugins() {
 
 module.exports = {
   imageLoader,
-  assetPlugins,
+  assetPlugins
 };
